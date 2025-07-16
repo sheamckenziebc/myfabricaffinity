@@ -1,0 +1,640 @@
+/* ==========================================================================
+   FONT IMPORTS
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
+body {
+  font-family: "Lexend", sans-serif;
+  margin: 10px;
+  padding: 5px;
+  background-color: ivory;
+  color: gray;
+}
+
+/* ==========================================================================
+   HEADER SECTION
+   ========================================================================== */
+.site-header {
+  position: relative;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background-color: ivory;
+}
+
+/* -- Logo -- */
+.logo {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   TAG STYLES — HEADER & PRODUCT VARIANTS
+   ========================================================================== */
+.tag-stamp {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: turquoise;
+  border: 4px solid turquoise;
+  border-radius: 12px 0 0 12px;
+  padding: 20px 30px;
+  font-size: 18px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: fit-content;
+  z-index: 5;
+}
+
+.hole-punch {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid turquoise;
+  z-index: 10;
+}
+
+.tag-stamp::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid turquoise;
+}
+
+/* Header-specific tag */
+.header-tag {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  transform: rotate(10deg);
+}
+
+/* Product page centered tag */
+.centered-tag-container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin: 40px 0;
+  position: relative;
+}
+
+.centered-tag {
+  transform: rotate(6deg);
+}
+
+/* Show product tag only on product pages */
+body.product-page .centered-tag-container {
+  display: flex;
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+.main-nav {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 30px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: gray;
+  font-size: 2rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: orange;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   SLIDESHOW
+   ========================================================================== */
+.slideshow-wrapper {
+  text-align: center;
+  padding: 60px 20px 30px;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 2 / 1;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+  transform: translateX(-60px);
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.slide.exit {
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+/* ==========================================================================
+   TEXT SECTIONS
+   ========================================================================== */
+.tagline {
+  margin-top: 20px;
+  font-size: 2rem;
+  font-family: "Lexend", sans-serif;
+  color: #444;
+  white-space: nowrap;
+}
+
+.section-heading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #cccccc;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.top-section,
+.bottom-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 40px 60px;
+  text-align: left;
+}
+
+.top-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.text-block {
+  text-align: left;
+  flex: 1;
+}
+
+.profile-image {
+  flex: 0 0 auto;
+  max-width: 200px;
+  text-align: center;
+}
+
+.profile-image img {
+  width: 200px;
+  height: 350px;
+  padding: 10px;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   TILE & GALLERY STYLING
+   ========================================================================== */
+.watermark-heading {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: #dddddd;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.5;
+}
+
+.gallery,
+.thread-gallery,
+.product-grid {
+  display: grid;
+  gap: 30px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.gallery {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.product-grid {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.thread-gallery {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tile,
+.tiles,
+.thread-thumbnail {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.tile img,
+.tiles img,
+.thread-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tile span,
+.tiles span,
+.thread-thumbnail .label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+  transition: color 0.3s;
+}
+
+.tile span:hover,
+.tiles span:hover,
+.thread-thumbnail .label:hover {
+  color: orange;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  gap: 40px;
+  flex-wrap: wrap;
+  border-top: 1px solid #ccc;
+  background-color: ivory;
+}
+
+.footer .logo {
+  width: 200px;
+  height: 200px;
+  padding: 5px;
+  object-fit: contain;
+  align-self: flex-start;
+}
+
+.footer p {
+  font-family: "Lexend", sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 5px;
+  margin: 0;
+  text-align: left;
+  max-width: 500px;
+}
+
+.footer a {
+  color: #666;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: orange;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES — CUSTOM BREAKPOINTS
+   ========================================================================== */
+/* Extra Small Mobile Screens: ≤ 480px */
+@media (max-width: 480px) {
+  .logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-tag {
+    position: static;
+    transform: rotate(6deg);
+    margin-top: 20px;
+  }
+
+  .tag-stamp::before,
+  .hole-punch {
+    display: none;
+  }
+
+  .main-nav a {
+    font-size: 1rem;
+  }
+
+  .slide-title {
+    font-size: 1.2rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 10px;
+    white-space: normal;
+  }
+
+  .top-content,
+  .bottom-section {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    padding: 0 10px;
+  }
+
+  .watermark-heading {
+    font-size: 1.5rem;
+    padding: 0 10px;
+  }
+
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tile,
+  .tiles {
+    width: 100%;
+  }
+
+  .thread-gallery,
+  .product-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .thread-thumbnail {
+    width: 100%;
+  }
+
+  .tile span,
+  .tiles span,
+  .thread-thumbnail .label {
+    font-size: 1rem;
+  }
+
+  .footer {
+    padding: 20px 10px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer p {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+/* Mobile: ≤ 600px */
+@media (min-width: 481px) and (max-width: 600px) {
+  .logo {
+    width: 120px;
+    height: 120px;
+  }
+  .header-tag {
+    position: static;
+    transform: rotate(6deg);
+    margin-top: 20px;
+  }
+  .tag-stamp::before {
+    display: none;
+  }
+  .hole-punch {
+    display: none;
+  }
+  .main-nav a {
+    font-size: 1.2rem;
+  }
+  .slide-title {
+    font-size: 1.5rem;
+    top: 10px;
+  }
+  .tagline {
+    font-size: 1.2rem;
+  }
+  .watermark-heading {
+    font-size: 2rem;
+    padding: 0 10px;
+  }
+  .gallery,
+  .thread-gallery,
+  .product-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tile,
+  .tiles,
+  .thread-thumbnail {
+    width: 90%;
+  }
+  .top-content,
+  .bottom-section {
+    padding: 0 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile-image {
+    order: 2;
+    margin-bottom: 20px;
+  }
+  .text-block {
+    order: 1;
+    text-align: left;
+  }
+  .footer {
+    padding: 20px 10px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer p {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+/* Small Tablets / Large Phones: 601px–767px */
+@media (min-width: 601px) and (max-width: 767px) {
+  .watermark-heading {
+    font-size: 2.5rem;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px;
+  }
+  .tile {
+    width: 100%;
+  }
+  .main-nav a {
+    font-size: 1.4rem;
+  }
+}
+
+/* Tablets and Small Laptops: ≥768px and <1200px */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .logo {
+    width: 160px;
+    height: 160px;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .main-nav a {
+    font-size: 1.6rem;
+  }
+  .tag-stamp {
+    position: static;
+    transform: none;
+    margin: 10px auto;
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  .slide-title {
+    font-size: 2rem;
+    top: 20px;
+    transform: translateX(-50%);
+  }
+  .tagline {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .watermark-heading {
+    font-size: 3rem;
+  }
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .top-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile-image {
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer .logo {
+    margin-bottom: 10px;
+  }
+  .footer p {
+    text-align: left;
+  }
+}
+
+/* Large Monitors: ≤ 1920px */
+@media (max-width: 1920px) {
+  body {
+    font-size: 1.1rem;
+  }
+  .section-heading {
+    font-size: 3rem;
+  }
+  .gallery {
+    max-width: 1400px;
+    gap: 40px;
+  }
+  .profile-image img {
+    height: 360px;
+  }
+}

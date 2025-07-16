@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>" Box of - My Fabric Affinity</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .detail-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .detail-image {
+      flex: 1;
+      max-width: 400px;
+    }
+    .detail-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .detail-info {
+      flex: 2;
+      min-width: 250px;
+      font-family: 'Lexend', sans-serif;
+      color: #444;
+    }
+    .detail-info h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    .detail-info p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div id="header-include"></div>
+
+  <main>
+    <h1 class="watermark-heading">" Box of</h1>
+    <div class="detail-flex">
+      <div class="detail-image">
+        <img src="images/butterflywing.jpg" alt="" Box of">
+      </div>
+      <div class="detail-info">
+        <h2>Product Details</h2>
+        <p><strong>Category:</strong> Matching Threads</p>
+        <p><strong>Available Quantity:</strong> 12 meters</p>
+        <p><strong>Description:</strong> Additional information about this product can be added here based on the original remnant listing.</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-include"></div>
+  <script src="includes.js"></script>
+  <script src="logo.js"></script>
+</body>
+</html>
